@@ -8,7 +8,7 @@ const Home = () => {
     return (
         <div>
 
-            <div className="flex md:w-10/12 m-20 justify-center flex-wrap mx-auto">
+            <div className="flex md:w-10/12 justify-center flex-wrap mx-auto">
 
                 {
                     productsList.map(product => {
