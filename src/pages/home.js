@@ -15,7 +15,7 @@ const Home = () => {
                 {
                     productsList.map(product => {
                         return (
-                            <div className="border m-4 w-1/4 ">
+                            <div className="border border-gray-100 rounded-lg shadow-xl shadow-gray-50 m-4 w-1/4 ">
                                 <img src={product.image} alt="product_image" className="h-80 w-full object-cover" />
                                 <div className="p-2">
                                     <span className="text-sm font-semibold text-gray-500">{product.brand}</span>
@@ -26,6 +26,10 @@ const Home = () => {
                                         <span className=" mx-2 line-through text-gray-500 text-sm">{product.price}</span>
                                         <span className="mx-2 text-sm text-green-500 font-semibold">{product.discount_in_percent}% off</span>
                                     </div>
+
+                                    <button className="border m-2 p-2 rounded-lg hover:bg-orange-400 hover:text-white w-full mx-auto font-semibold text-center">
+                                        ADD TO CART
+                                    </button>
                                 </div>
                             </div>
                         )
