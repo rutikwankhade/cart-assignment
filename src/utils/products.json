@@ -1,0 +1,56 @@
+ [
+{
+    "id":1,
+    "title":"Full Sleeve Solid Men Quilted Jacket",
+    "brand":"Breil By Fort Collins ",
+    "price_in_rupees":2111,
+    "image":"https://rukminim1.flixcart.com/image/832/832/k0plpjk0/jacket/t/v/t/m-11115fk-breil-by-fort-collins-original-imafkez9hfrbgtsh.jpeg?q=70",
+    "sizes":["M","L"],
+    "discount_in_percent":25
+},
+{
+    "id":2,
+    "title":"Full Sleeve Solid Men Quilted Jacket",
+    "brand":"Breil By Fort Collins",
+    "price":2325,
+    "image":"https://rukminim1.flixcart.com/image/832/832/jph83gw0/jacket/p/z/z/m-1285-fk-breil-by-fort-collins-original-imafbpybzkgcaxhe.jpeg?q=70",
+    "sizes":["L", "XL"],
+    "discount_in_percent":42
+},
+{
+    "id":3,
+    "title":"Solid Men Polo Neck Black, Grey T-Shirt",
+    "brand":"EPPE",
+    "price":899,
+    "image":"https://rukminim1.flixcart.com/image/832/832/xif0q/t-shirt/k/d/t/m-166a-eppe-original-imaghptctz2my2rt.jpeg?q=70",
+    "sizes":["S", "M","XL"],
+    "discount_in_percent":59
+},
+{
+    "id":4,
+    "title":"Striped Men Polo Neck Multicolor T-Shirt",
+    "brand":"Gentino ",
+    "price":899,
+    "image":"https://rukminim1.flixcart.com/image/832/832/k4px6kw0/t-shirt/z/y/m/m-5425-gantino-original-imafmvsgfwzzf8d7.jpeg?q=70",
+    "sizes":["M", "XL"],
+    "discount_in_percent":44
+},
+{
+    "id":5,
+    "title":"Full Sleeve Printed Men Sweatshirt",
+    "brand":"Smartees ",
+    "price":1499,
+    "image":"https://rukminim1.flixcart.com/image/832/832/kfmv9u80/sweatshirt/u/g/p/l-hoodsweat-feather-black-smartees-original-imafwfgnfeg6t4fr.jpeg?q=70",
+    "sizes":["XL", "XXL"],
+    "discount_in_percent":40
+},
+{
+    "id":6,
+    "title":"Full Sleeve Color Block Men Sweatshirt",
+    "brand":"CLOTHING CULTURE ",
+    "price":2499,
+    "image":"https://rukminim1.flixcart.com/image/832/832/km3s1ow0/sweatshirt/z/i/a/l-frss4005-feranoid-original-imagf2zz972whftj.jpeg?q=70",
+    "sizes":["M","L","XL"],
+    "discount_in_percent":64
+}
+]
