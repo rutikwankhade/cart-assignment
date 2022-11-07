@@ -1,7 +1,17 @@
-import React from 'react';
-const ProductCard = ({ product }) => {
+import React, { useState, useEffect } from 'react';
+const ProductCard = ({ product, handleAddToCart }) => {
+
+
+
+    const addToCart = (product) => {
+        handleAddToCart(product)
+    }
+
+
+
+
     return (
-        <div className="border border-gray-100 rounded-lg shadow-xl shadow-gray-50 m-4 w-1/4 ">
+        <div className="border border-gray-100 rounded-lg shadow-xl shadow-gray-50 m-4 md:w-1/4 ">
             <img src={product.image} alt="product_image" className="h-80 rounded-t-lg w-full object-cover" />
             <div className="p-2">
                 <span className="text-sm font-semibold text-gray-500">{product.brand}</span>
@@ -13,7 +23,9 @@ const ProductCard = ({ product }) => {
                     <span className="mx-2 text-sm text-green-500 font-semibold">{product.discount_in_percent}% off</span>
                 </div>
 
-                <button className="border m-2 p-2 rounded-lg hover:bg-orange-400 hover:text-white w-full mx-auto font-semibold text-center">
+                <button
+                    onClick={() => addToCart(product)}
+                    className="border m-2 p-2 rounded-lg hover:bg-orange-400 hover:text-white w-full mx-auto font-semibold text-center">
                     ADD TO CART
                 </button>
             </div>
