@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from 'react';
+
+
+import { useCart } from '../utils/CartContext';
+
 const ProductCard = ({ product, handleAddToCart }) => {
 
-
+    const { setCartItems, cartItems } = useCart()
 
     const addToCart = (product) => {
-        handleAddToCart(product)
+        setCartItems([...cartItems, product])
     }
 
 
