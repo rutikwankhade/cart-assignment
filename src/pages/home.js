@@ -21,8 +21,10 @@ const Home = () => {
                                     <span className="text-sm font-semibold text-gray-500">{product.brand}</span>
                                     <h2 className="text-md truncate">{product.title}</h2>
 
-                                    <div className="flex">
-                                        <span className="line-through text-gray-500 text-sm">{ product.price}</span>
+                                    <div className="flex items-center">
+                                        <span className="text-lg font-semibold">{Math.trunc(product.price - (product.price * (product.discount_in_percent / 100)))}</span>
+                                        <span className=" mx-2 line-through text-gray-500 text-sm">{product.price}</span>
+                                        <span className="mx-2 text-sm text-green-500 font-semibold">{product.discount_in_percent}% off</span>
                                     </div>
                                 </div>
                             </div>
