@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import ProductCard from '../components/ProductCard'
 import { useCart } from '../utils/CartContext';
 const Cart = () => {
@@ -14,8 +14,6 @@ const Cart = () => {
     return (
         <div className="md:w-10/12 mx-auto flex justify-center">
 
-
-
             <div className="w-8/12 flex flex-col justify-center ">
                 {cartItems.map(product => {
                     return <ProductCard product={product}
@@ -23,19 +21,18 @@ const Cart = () => {
                         customCSS='flex items-center P-4 md:w-10/12'
                         showSaveForLaterButton={true}
                         showRemoveFromCartButton={true}
-
                     />
                 })}
 
                 {
-                    !cartItems.length?<span className="m-10">Your cart is empty, shop now.</span>:<span></span>
+                    !cartItems.length ? <span className="m-10">Your cart is empty, shop now.</span> : <span></span>
                 }
 
 
                 <h2 className="text-2xl font-semibold p-4 border-t-2 border-gray-100">Saved for later</h2>
-                
-                 {
-                    !savedItems.length?<span className="m-10">No items saved for later</span>:<span></span>
+
+                {
+                    !savedItems.length ? <span className="m-10">No items saved for later</span> : <span></span>
                 }
 
                 <div>
@@ -45,7 +42,6 @@ const Cart = () => {
                             customCSS='flex P-4 md:w-10/12'
                             showRemoveFromSavedButton={true}
                             showAddToCartButton={true}
-
                         />
                     })}
                 </div>
@@ -59,9 +55,13 @@ const Cart = () => {
                 <div className="my-4">
                     <span className="text-lg">Cart Total with discounts</span>
                 </div>
-                <span className="text-3xl font-semibold ">    {calculateTotal()}</span>
 
-                <span className="mx-2 line-through text-gray-500 text-lg">    {cartItems.reduce((total, item) => total + item.price, 0)}</span>
+                <span className="text-3xl font-semibold ">
+                    {calculateTotal()}
+                </span>
+                <span className="mx-2 line-through text-gray-500 text-lg">
+                    {cartItems.reduce((total, item) => total + item.price, 0)}
+                </span>
 
             </div>
 
