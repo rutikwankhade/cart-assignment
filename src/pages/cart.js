@@ -27,8 +27,17 @@ const Cart = () => {
                     />
                 })}
 
+                {
+                    !cartItems.length?<span className="m-10">Your cart is empty, shop now.</span>:<span></span>
+                }
+
 
                 <h2 className="text-2xl font-semibold p-4 border-t-2 border-gray-100">Saved for later</h2>
+                
+                 {
+                    !savedItems.length?<span className="m-10">No items saved for later</span>:<span></span>
+                }
+
                 <div>
                     {savedItems && savedItems.map(product => {
                         return <ProductCard product={product}

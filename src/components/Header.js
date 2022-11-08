@@ -5,7 +5,7 @@ const Header = () => {
 
     const { totalCartItems } = useCart()
     return (
-        <div className="md:w-8/12 text-lg font-semibold mx-auto m-4 flex">
+        <div className="md:w-9/12 text-lg font-semibold mx-auto m-4 flex">
             <Link to="/" className="text-lg">Flipcart</Link>
 
             <Link to="/cart" className="flex ml-auto mr-2">
