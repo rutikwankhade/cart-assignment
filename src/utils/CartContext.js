@@ -10,7 +10,7 @@ export function useCart() {
 export function CartContextProvider({ children }) {
 
     const [cartItems, setCartItems] = useState([])
-    const [savedItems, setSavedtems] = useState([])
+    const [savedItems, setSavedItems] = useState([])
 
 
 
@@ -18,7 +18,7 @@ export function CartContextProvider({ children }) {
         cartItems,
         setCartItems,
         savedItems,
-        setSavedtems,
+        setSavedItems,
         totalCartItems: cartItems.length
     }
 

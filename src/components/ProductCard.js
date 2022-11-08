@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 
 import { useCart } from '../utils/CartContext';
 
-const ProductCard = ({ product, showSaveForLaterButton}) => {
+const ProductCard = ({ product, showSaveForLaterButton, showRemoveFromSavedButton, customCSS, imgHeight}) => {
 
     const { setCartItems, cartItems, savedItems, setSavedItems } = useCart()
 
@@ -16,12 +16,17 @@ const ProductCard = ({ product, showSaveForLaterButton}) => {
     }
 
 
+     const removeFromSaved = (product) => {
+        setSavedItems([...savedItems, product])
+    }
+
+
 
 
 
     return (
-        <div className="border border-gray-100 rounded-lg shadow-xl shadow-gray-50 m-4 md:w-1/4 ">
-            <img src={product.image} alt="product_image" className="h-80 rounded-t-lg w-full object-cover" />
+        <div className={` ${customCSS} border border-gray-100 rounded-lg shadow-xl shadow-gray-50 m-4  `}>
+            <img src={product.image} alt="product_image" className={`${imgHeight} rounded-t-lg w-full object-cover`} />
             <div className="p-2">
                 <span className="text-sm font-semibold text-gray-500">{product.brand}</span>
                 <h2 className="text-md truncate">{product.title}</h2>
@@ -43,6 +48,15 @@ const ProductCard = ({ product, showSaveForLaterButton}) => {
                     onClick={() => addToSaveForLater(product)}
                     className="border m-2 p-2 rounded-lg hover:bg-yellow-400 hover:text-white w-full mx-auto font-semibold text-center">
                    SAVE FOR LATER
+                    </button> :
+                   <div></div>
+                }
+                
+                 {showRemoveFromSavedButton ?
+                  <button
+                    onClick={() => removeFromSaved(product)}
+                    className="border m-2 p-2 rounded-lg hover:bg-yellow-400 hover:text-white w-full mx-auto font-semibold text-center">
+                   REMOVE
                     </button> :
                    <div></div>
             }

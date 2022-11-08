@@ -8,24 +8,7 @@ import ProductCard from '../components/ProductCard'
 const Home = () => {
     const [cartItems, setCartItems] = useState([])
 
-    useEffect(() => {
-        if (localStorage.getItem('cartItems') !== null) {
-            setCartItems(JSON.parse(window.localStorage.getItem('cartItems')))
-        }
-    }, [])
-
-
-    useEffect(() => {
-        localStorage.setItem('cartItems', JSON.stringify(cartItems));
-    }, [cartItems])
-
-
-
-    const handleAddToCart = (product) => {
-        console.log(product, "added to cart")
-        setCartItems([...cartItems, product])
-
-    }
+  
 
     console.log(productsList)
     return (
@@ -36,7 +19,7 @@ const Home = () => {
                 {
                     productsList.map(product => {
                         return (
-                            <ProductCard product={product} handleAddToCart={handleAddToCart} />
+                            <ProductCard product={product} imgHeight="h-80" customCSS="flex-col md:w-1/4" />
                         )
                     })
                 }
