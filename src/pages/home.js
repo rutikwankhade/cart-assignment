@@ -8,7 +8,7 @@ import ProductCard from '../components/ProductCard'
 const Home = () => {
     const [cartItems, setCartItems] = useState([])
 
-  
+
 
     console.log(productsList)
     return (
@@ -19,7 +19,13 @@ const Home = () => {
                 {
                     productsList.map(product => {
                         return (
-                            <ProductCard product={product} imgHeight="h-80" customCSS="flex-col md:w-1/4" />
+                            <ProductCard
+                                product={product}
+                                imgHeight="h-80"
+                                customCSS="flex-col md:w-1/4"
+                                showAddToCartButton={true}
+
+                            />
                         )
                     })
                 }

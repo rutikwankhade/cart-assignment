@@ -3,21 +3,64 @@ import React, { useState, useEffect } from 'react';
 
 import { useCart } from '../utils/CartContext';
 
-const ProductCard = ({ product, showSaveForLaterButton, showRemoveFromSavedButton, customCSS, imgHeight}) => {
+const ProductCard = ({
+    product,
+    showSaveForLaterButton,
+    showRemoveFromSavedButton,
+    showRemoveFromCartButton,
+    showAddToCartButton,
+
+    customCSS,
+    imgHeight
+}) => {
 
     const { setCartItems, cartItems, savedItems, setSavedItems } = useCart()
 
     const addToCart = (product) => {
         setCartItems([...cartItems, product])
+        const index = savedItems.indexOf(product);
+        if (index > -1) {
+
+            // remove item
+            savedItems.splice(index, 1);
+            setSavedItems(savedItems)
+        }
+
     }
 
-     const addToSaveForLater = (product) => {
+    const addToSaveForLater = (product) => {
+
         setSavedItems([...savedItems, product])
+
+        const index = cartItems.indexOf(product);
+        if (index > -1) {
+
+            // remove item
+            cartItems.splice(index, 1);
+            setCartItems(cartItems)
+        }
+
     }
 
 
-     const removeFromSaved = (product) => {
-        setSavedItems([...savedItems, product])
+    const removeFromSaved = (product) => {
+        const index = savedItems.indexOf(product);
+        if (index > -1) {
+
+            // remove item
+            savedItems.splice(index, 1);
+            setSavedItems([...savedItems])
+        }
+    }
+
+     const removeFromCart = (product) => {
+        const index = cartItems.indexOf(product);
+        if (index > -1) {
+
+            // remove item
+            cartItems.splice(index, 1);
+            setCartItems([...cartItems])
+        }
     }
 
 
@@ -36,30 +79,40 @@ const ProductCard = ({ product, showSaveForLaterButton, showRemoveFromSavedButto
                     <span className=" mx-2 line-through text-gray-500 text-sm">{product.price}</span>
                     <span className="mx-2 text-sm text-green-500 font-semibold">{product.discount_in_percent}% off</span>
                 </div>
+                {showAddToCartButton ?
+                    <button
+                        onClick={() => addToCart(product)}
+                        className="border m-2 p-2 rounded-lg hover:bg-orange-400 hover:text-white w-full mx-auto font-semibold text-center">
+                        ADD TO CART
+                    </button> : <div></div>
+                }
 
-                <button
-                    onClick={() => addToCart(product)}
-                    className="border m-2 p-2 rounded-lg hover:bg-orange-400 hover:text-white w-full mx-auto font-semibold text-center">
-                    ADD TO CART
-                </button>
+                  {showRemoveFromCartButton ?
+                    <button
+                        onClick={() => removeFromCart(product)}
+                        className="border m-2 p-2 rounded-lg hover:bg-red-400 hover:text-white w-full mx-auto font-semibold text-center">
+                       REMOVE FROM CART
+                    </button> : <div></div>
+                }
+
 
                 {showSaveForLaterButton ?
-                  <button
-                    onClick={() => addToSaveForLater(product)}
-                    className="border m-2 p-2 rounded-lg hover:bg-yellow-400 hover:text-white w-full mx-auto font-semibold text-center">
-                   SAVE FOR LATER
+                    <button
+                        onClick={() => addToSaveForLater(product)}
+                        className="border m-2 p-2 rounded-lg hover:bg-yellow-400 hover:text-white w-full mx-auto font-semibold text-center">
+                        SAVE FOR LATER
                     </button> :
-                   <div></div>
+                    <div></div>
                 }
-                
-                 {showRemoveFromSavedButton ?
-                  <button
-                    onClick={() => removeFromSaved(product)}
-                    className="border m-2 p-2 rounded-lg hover:bg-yellow-400 hover:text-white w-full mx-auto font-semibold text-center">
-                   REMOVE
+
+                {showRemoveFromSavedButton ?
+                    <button
+                        onClick={() => removeFromSaved(product)}
+                        className="border m-2 p-2 rounded-lg hover:bg-red-400 hover:text-white w-full mx-auto font-semibold text-center">
+                        REMOVE
                     </button> :
-                   <div></div>
-            }
+                    <div></div>
+                }
             </div>
         </div>
     );
