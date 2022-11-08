@@ -3,13 +3,18 @@ import React, { useState, useEffect } from 'react';
 
 import { useCart } from '../utils/CartContext';
 
-const ProductCard = ({ product, handleAddToCart }) => {
+const ProductCard = ({ product, showSaveForLaterButton}) => {
 
-    const { setCartItems, cartItems } = useCart()
+    const { setCartItems, cartItems, savedItems, setSavedItems } = useCart()
 
     const addToCart = (product) => {
         setCartItems([...cartItems, product])
     }
+
+     const addToSaveForLater = (product) => {
+        setSavedItems([...savedItems, product])
+    }
+
 
 
 
@@ -32,6 +37,15 @@ const ProductCard = ({ product, handleAddToCart }) => {
                     className="border m-2 p-2 rounded-lg hover:bg-orange-400 hover:text-white w-full mx-auto font-semibold text-center">
                     ADD TO CART
                 </button>
+
+                {showSaveForLaterButton ?
+                  <button
+                    onClick={() => addToSaveForLater(product)}
+                    className="border m-2 p-2 rounded-lg hover:bg-yellow-400 hover:text-white w-full mx-auto font-semibold text-center">
+                   SAVE FOR LATER
+                    </button> :
+                   <div></div>
+            }
             </div>
         </div>
     );
