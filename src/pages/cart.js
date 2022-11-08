@@ -6,8 +6,8 @@ const Cart = () => {
     const { cartItems, savedItems, totalCartItems } = useCart()
 
     const calculateTotal = () => {
-     return cartItems.reduce((totalWithDiscount, item) => totalWithDiscount + Math.trunc(item.price - (item.price * (item.discount_in_percent / 100))), 0)
-        
+        return cartItems.reduce((totalWithDiscount, item) => totalWithDiscount + Math.trunc(item.price - (item.price * (item.discount_in_percent / 100))), 0)
+
     }
 
 
@@ -50,7 +50,7 @@ const Cart = () => {
                 <div className="my-4">
                     <span className="text-lg">Cart Total with discounts</span>
                 </div>
-                                <span className="text-3xl font-semibold ">    {calculateTotal()}</span>
+                <span className="text-3xl font-semibold ">    {calculateTotal()}</span>
 
                 <span className="mx-2 line-through text-gray-500 text-lg">    {cartItems.reduce((total, item) => total + item.price, 0)}</span>
 
